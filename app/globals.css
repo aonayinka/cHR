@@ -19,6 +19,12 @@
     --foreground: #ededed;
   }
 }
+@layer base {
+
+  h1{
+    @apply text-green-900
+  }
+}
 
 body {
   background: var(--background);

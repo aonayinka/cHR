@@ -17,7 +17,7 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="border-t border-slate-200 bg-[#FFFAFB] text-slate-700">
+    <footer className=" bg-[#FFFAFB] text-slate-700">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-3 lg:px-8">
         <div>
           <h3 className="text-lg font-semibold text-slate-900">

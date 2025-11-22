@@ -18,10 +18,10 @@ const contactOptions = [
 
 const ContactPage = () => {
   return (
-    <div className="bg-slate-50 text-slate-800">
-      <header className="bg-gradient-to-b from-white to-slate-50">
+    <div className="bg-[#FFFAFB] text-slate-800">
+      <header >
         <div className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-600">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-green-900">
             Get in touch
           </p>
           <h1 className="mt-4 text-4xl font-semibold text-slate-900 sm:text-5xl">
@@ -33,7 +33,7 @@ const ContactPage = () => {
           </p>
           <a
             href="https://wa.me/44705251234"
-            className="mt-10 inline-flex w-full items-center justify-center rounded-full bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-500 md:hidden"
+            className="mt-10 inline-flex w-full items-center justify-center rounded-full bg-green-900 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-green-800 md:hidden"
             target="_blank"
             rel="noreferrer"
           >
@@ -43,7 +43,7 @@ const ContactPage = () => {
       </header>
 
       <section className="mx-auto grid max-w-6xl gap-10 px-4 pb-20 sm:px-6 md:grid-cols-2 lg:px-8">
-        <div className="rounded-3xl border border-slate-100 bg-white p-8 shadow-sm">
+        <div className="rounded-3xl border border-slate-100  p-8 shadow-sm">
           <h2 className="text-2xl font-semibold text-slate-900">Send us a note</h2>
           <p className="mt-3 text-sm text-slate-600">
             Share a few details and we&apos;ll get back within two business days.
@@ -56,7 +56,7 @@ const ContactPage = () => {
               <input
                 id="name"
                 type="text"
-                className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+                className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-green-900 focus:ring-2 focus:ring-green-900"
                 placeholder="Jane Doe"
               />
             </div>
@@ -67,7 +67,7 @@ const ContactPage = () => {
               <input
                 id="email"
                 type="email"
-                className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+                className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-green-900 focus:ring-2 focus:ring-green-900"
                 placeholder="you@company.com"
               />
             </div>
@@ -78,7 +78,7 @@ const ContactPage = () => {
               <input
                 id="company"
                 type="text"
-                className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+                className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-green-900 focus:ring-2 focus:ring-green-900"
                 placeholder="CultivateHR"
               />
             </div>
@@ -95,7 +95,7 @@ const ContactPage = () => {
             </div>
             <button
               type="submit"
-              className="w-full rounded-full bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-500"
+              className="w-full rounded-full bg-green-900 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-green-800"
             >
               Submit enquiry
             </button>
@@ -103,18 +103,18 @@ const ContactPage = () => {
         </div>
 
         <div className="space-y-6">
-          <div className="rounded-3xl border border-slate-100 bg-white/70 p-8">
+          <div className="rounded-3xl p-8">
             <h2 className="text-2xl font-semibold text-slate-900">Ways to reach us</h2>
             <div className="mt-6 space-y-6">
               {contactOptions.map((option) => (
-                <div key={option.title} className="rounded-2xl border border-slate-100 p-5">
-                  <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
+                <div key={option.title} className="rounded-2xl border border-slate-100 p-5 bg-blue-950">
+                  <p className="text-sm font-semibold uppercase tracking-wide text-white">
                     {option.title}
                   </p>
-                  <p className="mt-2 text-base text-slate-700">{option.detail}</p>
+                  <p className="mt-2 text-base text-slate-100">{option.detail}</p>
                   <a
                     href={option.action.href}
-                    className="mt-3 inline-flex text-sm font-semibold text-emerald-600 hover:text-emerald-500"
+                    className="mt-3 inline-flex text-sm font-semibold text-green-500 hover:text-green-800"
                   >
                     {option.action.label}
                   </a>
@@ -130,7 +130,7 @@ const ContactPage = () => {
             </p>
             <a
               href="https://wa.me/44705251234"
-              className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-500"
+              className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-green-500"
               target="_blank"
               rel="noreferrer"
             >
