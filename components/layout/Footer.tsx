@@ -59,7 +59,7 @@ const Footer = () => {
               href="mailto:Info@cultivatehr.co.uk"
               className="block font-medium text-slate-900"
             >
-              Info@cultivatehr.co.uk
+              info@cultivatehr.co.uk
             </a>
             <div className="flex flex-wrap gap-3 pt-2">
               {socialLinks.map((link) => (
