@@ -64,7 +64,7 @@ const Footer = () => {
             <div className="flex flex-wrap gap-3 pt-2">
               {socialLinks.map((link) => (
                 <a
-                  key={link.label}
+                  key={link.href}
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
