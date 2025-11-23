@@ -23,19 +23,19 @@ const Navbar = () => {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="text-lg font-semibold tracking-tight text-slate-900"
+          className="text-2xl font-semibold tracking-tight text-slate-900"
         >
-          Cultivate <span className="text-green-950">HR</span>
+          Cultivate <span className="text-green-900">HR</span>
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
+        <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600  md:flex">
           {links.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`transition hover:text-slate-900 ${
+                className={`transition hover:text-slate-900 text-lg font-bold ${
                   isActive ? "text-slate-900" : ""
                 }`}
               >
