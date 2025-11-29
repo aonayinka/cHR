@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
-import { FaLinkedin ,FaSquareInstagram, FaXTwitter } from "react-icons/fa6";
+import { FormEvent, useState } from "react";
+import { FaLinkedin, FaSquareInstagram, FaXTwitter } from "react-icons/fa6";
 
 
 const quickLinks = [
@@ -16,6 +19,46 @@ const socialLinks = [
 ];
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
+
+  const handleSubscribe = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (!email.trim()) {
+      setStatus("error");
+      setMessage("Please enter an email address.");
+      return;
+    }
+
+    setStatus("loading");
+    setMessage("");
+
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(result?.error || "Unable to subscribe right now.");
+      }
+
+      setEmail("");
+      setStatus("success");
+      setMessage("Thanks for subscribing! Please check your inbox.");
+    } catch (error) {
+      setStatus("error");
+      setMessage(
+        error instanceof Error ? error.message : "Unable to subscribe right now."
+      );
+    }
+  };
+
   return (
     <footer className=" bg-[#FFFAFB] text-slate-700">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-3 lg:px-8">
@@ -27,7 +70,11 @@ const Footer = () => {
             Join our mailing list for people-first HR ideas, leadership tips, and
             event invitations.
           </p>
-          <form className="mt-5 flex flex-col gap-3 sm:flex-row">
+          <form
+            onSubmit={handleSubscribe}
+            className="mt-5 flex flex-col gap-3 sm:flex-row"
+            noValidate
+          >
             <label htmlFor="footer-email" className="sr-only">
               Email address
             </label>
@@ -35,15 +82,33 @@ const Footer = () => {
               id="footer-email"
               type="email"
               placeholder="you@company.com"
-              className="w-full rounded-full border border-slate-200 px-4 py-2 text-sm outline-none transition focus:border-green-900 focus:ring-1 focus:ring-green-900"
+              autoComplete="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              className="w-full rounded-full border border-slate-200 px-4 py-2 text-sm outline-none transition focus:border-green-900 focus:ring-1 focus:ring-green-900 disabled:cursor-not-allowed disabled:opacity-70"
+              disabled={status === "loading"}
+              required
             />
             <button
               type="submit"
-              className="rounded-full bg-green-950 px-6 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-800"
+              className="rounded-full bg-green-950 px-6 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-800 disabled:cursor-not-allowed disabled:opacity-70"
+              disabled={status === "loading"}
+              aria-busy={status === "loading"}
             >
-              Subscribe
+              {status === "loading" ? "Subscribing..." : "Subscribe"}
             </button>
           </form>
+          {message && (
+            <p
+              className={`mt-2 text-sm ${
+                status === "success" ? "text-emerald-700" : "text-red-600"
+              }`}
+              role={status === "success" ? "status" : "alert"}
+              aria-live="polite"
+            >
+              {message}
+            </p>
+          )}
         </div>
 
         <div>
