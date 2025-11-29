@@ -15,8 +15,11 @@ const ptSerif = PT_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Cultivate HR",
-  description: "Human Resources and Coaching services for small businesses.",
+  title: { default: "Cultivate HR",
+    template: "%s | Cultivate HR"
+  },
+  description: "HR for the people by the people.",
+  
 };
 
 export default function RootLayout({
